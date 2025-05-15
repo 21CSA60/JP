@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react"
 import DashboardLayout from "../../components/dashboard/DashboardLayout"
 import { useAuth } from "../../contexts/AuthContext"
-import { Bell, Plus, Edit2, Trash2, Save, Search, User } from "lucide-react"
-import { resumeAlerts, candidates } from "../../data/mockData"
+import { Bell, Plus, Edit2, Trash2, Save, Search } from "lucide-react"
 
 const ResumeAlerts = () => {
   const { currentUser } = useAuth()
   const [alerts, setAlerts] = useState([])
-  const [matchedCandidates, setMatchedCandidates] = useState({})
   const [isCreating, setIsCreating] = useState(false)
   const [editingAlert, setEditingAlert] = useState(null)
   const [formData, setFormData] = useState({
@@ -22,18 +20,8 @@ const ResumeAlerts = () => {
   })
 
   useEffect(() => {
-    // Load alerts for the current employer
-    const employerAlerts = resumeAlerts.filter(alert => alert.employerId === currentUser?.id)
-    setAlerts(employerAlerts)
-
-    // Load matched candidates for each alert
-    const matches = {}
-    employerAlerts.forEach(alert => {
-      matches[alert.id] = candidates.filter(candidate => 
-        alert.matchedCandidates.includes(candidate.id)
-      )
-    })
-    setMatchedCandidates(matches)
+    // Load alerts from user profile or context
+    setAlerts(currentUser?.resumeAlerts || [])
   }, [currentUser])
 
   const handleInputChange = (e) => {
@@ -47,11 +35,9 @@ const ResumeAlerts = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const newAlert = {
-      id: editingAlert?.id || `alert${Date.now()}`,
-      employerId: currentUser.id,
+      id: editingAlert?.id || Date.now(),
       ...formData,
       createdAt: editingAlert?.createdAt || new Date().toISOString(),
-      matchedCandidates: []
     }
 
     if (editingAlert) {
@@ -294,7 +280,7 @@ const ResumeAlerts = () => {
 
           {/* Alerts List */}
           <div className="p-6">
-            <div className="space-y-6">
+            <div className="space-y-4">
               {alerts.length === 0 ? (
                 <div className="text-center py-8">
                   <Search className="mx-auto h-12 w-12 text-gray-400" />
@@ -316,87 +302,38 @@ const ResumeAlerts = () => {
                 alerts.map((alert) => (
                   <div
                     key={alert.id}
-                    className="bg-white border rounded-lg shadow-sm"
+                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg"
                   >
-                    <div className="p-4">
-                      <div className="flex items-center justify-between mb-4">
-                        <div>
-                          <h3 className="text-lg font-medium text-gray-900">
-                            {alert.title}
-                          </h3>
-                          <p className="text-sm text-gray-500">
-                            {alert.jobTitle} • {alert.location}
-                          </p>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <button
-                            onClick={() => handleEdit(alert)}
-                            className="p-2 text-blue-600 hover:text-blue-700"
-                          >
-                            <Edit2 className="h-5 w-5" />
-                          </button>
-                          <button
-                            onClick={() => handleDelete(alert.id)}
-                            className="p-2 text-red-600 hover:text-red-700"
-                          >
-                            <Trash2 className="h-5 w-5" />
-                          </button>
-                        </div>
+                    <div className="space-y-1">
+                      <h3 className="text-sm font-medium text-gray-900">
+                        {alert.title}
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+                        {alert.jobTitle && (
+                          <span>Job Title: {alert.jobTitle}</span>
+                        )}
+                        {alert.skills && (
+                          <span>Skills: {alert.skills}</span>
+                        )}
+                        {alert.experienceLevel && (
+                          <span>Experience: {alert.experienceLevel}</span>
+                        )}
+                        <span>Frequency: {alert.frequency}</span>
                       </div>
-
-                      <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div>
-                          <p className="text-sm font-medium text-gray-500">Skills</p>
-                          <p className="text-sm text-gray-900">{alert.skills}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-500">Experience Level</p>
-                          <p className="text-sm text-gray-900">{alert.experienceLevel}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-500">Education</p>
-                          <p className="text-sm text-gray-900">{alert.education}</p>
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-gray-500">Salary Range</p>
-                          <p className="text-sm text-gray-900">{alert.salary}</p>
-                        </div>
-                      </div>
-
-                      {/* Matched Candidates */}
-                      {matchedCandidates[alert.id]?.length > 0 && (
-                        <div className="mt-4 border-t pt-4">
-                          <h4 className="text-sm font-medium text-gray-900 mb-2">
-                            Matched Candidates ({matchedCandidates[alert.id].length})
-                          </h4>
-                          <div className="space-y-2">
-                            {matchedCandidates[alert.id].map((candidate) => (
-                              <div
-                                key={candidate.id}
-                                className="flex items-center justify-between p-2 bg-gray-50 rounded-md"
-                              >
-                                <div className="flex items-center">
-                                  <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                                    <User className="h-4 w-4 text-blue-600" />
-                                  </div>
-                                  <div className="ml-3">
-                                    <p className="text-sm font-medium text-gray-900">{candidate.name}</p>
-                                    <p className="text-xs text-gray-500">{candidate.title}</p>
-                                  </div>
-                                </div>
-                                <a
-                                  href={candidate.resumeUrl}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="text-sm text-blue-600 hover:text-blue-700"
-                                >
-                                  View Resume
-                                </a>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <button
+                        onClick={() => handleEdit(alert)}
+                        className="p-2 text-blue-600 hover:text-blue-700"
+                      >
+                        <Edit2 className="h-5 w-5" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(alert.id)}
+                        className="p-2 text-red-600 hover:text-red-700"
+                      >
+                        <Trash2 className="h-5 w-5" />
+                      </button>
                     </div>
                   </div>
                 ))
