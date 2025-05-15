@@ -50,6 +50,11 @@ const DashboardLayout = ({ children }) => {
       href: "/employer/all-applicants",
     },
     {
+      name: "Shortlisted Candidates",
+      icon: Star,
+      href: "/employer/shortlisted-candidates",
+    },
+    {
       name: "Shortlisted Resumes",
       icon: Star,
       href: "/employer/shortlisted-resumes",
