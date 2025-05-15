@@ -58,6 +58,10 @@ export function JobProvider({ children }) {
     return applications.filter(app => app.candidateId === candidateId);
   };
 
+  const getApplicationById = (id) => {
+    return applications.find(app => app.id === id);
+  };
+
   const updateApplicationStatus = (applicationId, status) => {
     setApplications(applications.map(app => 
       app.id === applicationId ? { ...app, status } : app
@@ -97,6 +101,7 @@ export function JobProvider({ children }) {
     deleteJob,
     getApplicationsByJob,
     getApplicationsByCandidate,
+    getApplicationById,
     updateApplicationStatus,
     applyToJob,
     withdrawApplication
