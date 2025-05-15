@@ -1,4 +1,4 @@
-// Mock Jobs
+// // Mock Jobs
 export const jobs = [
   {
     id: "job1",
@@ -47,6 +47,102 @@ export const jobs = [
       "Do you have experience with healthcare data?",
       "What data analysis tools do you use?"
     ]
+  },
+  {
+    id: "job3",
+    employerId: "emp1",
+    employerName: "Tech Solutions Inc.",
+    title: "UX/UI Designer",
+    description: "Join our team as a UX/UI designer for educational products",
+    responsibilities: "- Design user interfaces\n- Conduct user research\n- Create prototypes",
+    requirements: ["2+ years of experience", "Proficiency in Figma", "Education sector experience a plus"],
+    specializations: "UX Design, UI Design, Education Technology",
+    jobType: "Full-time",
+    salaryRange: "$90,000 - $120,000",
+    careerLevel: "Mid Level",
+    experienceYears: "2+ years",
+    qualification: "Bachelor's Degree",
+    industry: "Education",
+    location: "Remote",
+    deadline: "2024-04-15",
+    createdAt: "2024-01-20",
+    status: "active",
+    questions: [
+      "Share your experience with educational products",
+      "What's your design process?"
+    ]
+  },
+  {
+    id: "job4",
+    employerId: "emp1",
+    employerName: "Tech Solutions Inc.",
+    title: "Senior Backend Developer",
+    description: "Join our fintech team to build scalable payment solutions",
+    responsibilities: "- Design and implement APIs\n- Optimize database performance\n- Lead technical initiatives",
+    requirements: ["4+ years of backend development", "Experience with payment systems", "Strong SQL skills"],
+    specializations: "Backend Development, FinTech, Payment Systems",
+    jobType: "Full-time",
+    salaryRange: "$130,000 - $170,000",
+    careerLevel: "Senior Level",
+    experienceYears: "4+ years",
+    qualification: "Bachelor's Degree",
+    industry: "Finance",
+    location: "New York, NY",
+    deadline: "2024-04-30",
+    createdAt: "2024-01-18",
+    status: "active",
+    questions: [
+      "Describe your experience with payment systems",
+      "How do you approach API security?"
+    ]
+  },
+  {
+    id: "job5",
+    employerId: "emp1",
+    employerName: "Tech Solutions Inc.",
+    title: "Solar System Designer",
+    description: "Design renewable energy solutions for residential and commercial clients",
+    responsibilities: "- Create solar system designs\n- Perform site assessments\n- Collaborate with installation teams",
+    requirements: ["2+ years in solar design", "CAD proficiency", "Knowledge of energy regulations"],
+    specializations: "Renewable Energy, Solar Design, Engineering",
+    jobType: "Full-time",
+    salaryRange: "$70,000 - $90,000",
+    careerLevel: "Mid Level",
+    experienceYears: "2+ years",
+    qualification: "Bachelor's Degree",
+    industry: "Energy",
+    location: "Denver, CO",
+    deadline: "2024-04-01",
+    createdAt: "2024-01-19",
+    status: "active",
+    questions: [
+      "What experience do you have with solar design software?",
+      "Describe a challenging solar installation project"
+    ]
+  },
+  {
+    id: "job6",
+    employerId: "emp1",
+    employerName: "Tech Solutions Inc.",
+    title: "E-commerce Manager",
+    description: "Lead our digital retail transformation initiatives",
+    responsibilities: "- Manage online store operations\n- Optimize customer experience\n- Drive digital sales growth",
+    requirements: ["3+ years in e-commerce", "Experience with major platforms", "Strong analytical skills"],
+    specializations: "E-commerce, Digital Retail, Customer Experience",
+    jobType: "Full-time",
+    salaryRange: "$85,000 - $110,000",
+    careerLevel: "Mid Level",
+    experienceYears: "3+ years",
+    qualification: "Bachelor's Degree",
+    industry: "Retail",
+    location: "Los Angeles, CA",
+    deadline: "2024-03-25",
+    createdAt: "2024-01-17",
+    status: "active",
+    questions: [
+      "What e-commerce platforms have you worked with?",
+      "How do you measure success in e-commerce?"
+    ]
   }
 ];
 
@@ -66,8 +162,8 @@ export const applications = [
     ],
     candidate: {
       id: "cand1",
-      name: "John Smith",
-      email: "john.smith@example.com",
+      name: "Demo Candidate",
+      email: "candidate@example.com",
       title: "Senior Software Engineer",
       phone: "+1 234-567-8901",
       location: "San Francisco, CA",
@@ -83,59 +179,153 @@ export const applications = [
   {
     id: "app2",
     jobId: "job2",
-    candidateId: "cand2",
+    candidateId: "cand3",
     status: "pending",
     appliedAt: "2024-01-12",
     coverLetter: "With my background in data science and healthcare analytics...",
-    resumeUrl: "https://example.com/resumes/sarah-johnson.pdf",
+    resumeUrl: "https://example.com/resumes/michael-chen.pdf",
     answers: [
       "3 years experience analyzing healthcare datasets",
       "Proficient in Python, R, and SQL for data analysis"
     ],
     candidate: {
+      id: "cand3",
+      name: "Michael Chen",
+      email: "michael.c@email.com",
+      title: "Data Scientist",
+      phone: "+1 234-567-8903",
+      location: "Seattle, WA",
+      bio: "Data scientist specializing in machine learning and AI",
+      education: "Ph.D. Data Science, MIT\nM.S. Statistics, UCLA",
+      experience: "Data Scientist at AI Corp (2020-Present)\nML Engineer at DataTech (2018-2020)",
+      skills: ["Python", "Machine Learning", "TensorFlow", "SQL", "Data Visualization"],
+      linkedin: "https://linkedin.com/in/michaelchen",
+      github: "https://github.com/michaelchen",
+    }
+  },
+  {
+    id: "app3",
+    jobId: "job3",
+    candidateId: "cand2",
+    status: "accepted",
+    appliedAt: "2024-01-21",
+    coverLetter: "As a UX designer with experience in educational products...",
+    resumeUrl: "https://example.com/resumes/sarah-johnson.pdf",
+    answers: [
+      "Designed multiple educational apps used by over 100k students",
+      "User-centered design approach involving extensive research and testing"
+    ],
+    candidate: {
       id: "cand2",
       name: "Sarah Johnson",
-      email: "sarah.j@example.com",
-      title: "Data Scientist",
+      email: "sarah.j@email.com",
+      title: "UX Designer",
       phone: "+1 234-567-8902",
-      location: "Boston, MA",
-      bio: "Data scientist specializing in healthcare analytics",
-      education: "Ph.D. Biostatistics, Harvard University\nM.S. Statistics, UCLA",
-      experience: "Data Scientist at Health Analytics (2020-Present)\nBiostatistician at Research Lab (2018-2020)",
-      skills: ["Python", "R", "SQL", "Machine Learning", "Healthcare Analytics"],
+      location: "New York, NY",
+      bio: "Creative UX designer passionate about user-centered design",
+      education: "B.A. Design, Parsons School of Design",
+      experience: "UX Designer at Design Studio (2019-Present)\nJunior Designer at Creative Agency (2017-2019)",
+      skills: ["UI/UX Design", "Figma", "Adobe XD", "User Research", "Prototyping"],
+      website: "https://sarahj.design",
       linkedin: "https://linkedin.com/in/sarahjohnson",
-      github: "https://github.com/sarahjohnson",
+    }
+  },
+  {
+    id: "app4",
+    jobId: "job4",
+    candidateId: "cand4",
+    status: "pending",
+    appliedAt: "2024-01-19",
+    coverLetter: "With my background in financial technology marketing...",
+    resumeUrl: "https://example.com/resumes/emily-rodriguez.pdf",
+    answers: [
+      "Led digital marketing for a payment processing platform",
+      "Expertise in financial services marketing compliance"
+    ],
+    candidate: {
+      id: "cand4",
+      name: "Emily Rodriguez",
+      email: "emily.r@email.com",
+      title: "Marketing Manager",
+      phone: "+1 234-567-8904",
+      location: "Chicago, IL",
+      bio: "Marketing professional with expertise in digital campaigns",
+      education: "MBA Marketing, Northwestern University",
+      experience: "Marketing Manager at Brand Co (2019-Present)\nMarketing Specialist at Ad Agency (2016-2019)",
+      skills: ["Digital Marketing", "Social Media", "Content Strategy", "Analytics", "Brand Management"],
+      linkedin: "https://linkedin.com/in/emilyrodriguez",
+    }
+  },
+  {
+    id: "app5",
+    jobId: "job5",
+    candidateId: "cand5",
+    status: "shortlisted",
+    appliedAt: "2024-01-20",
+    coverLetter: "My product management experience in sustainable technology...",
+    resumeUrl: "https://example.com/resumes/david-kim.pdf",
+    answers: [
+      "Managed green energy product launches",
+      "Familiar with solar design principles and software"
+    ],
+    candidate: {
+      id: "cand5",
+      name: "David Kim",
+      email: "david.k@email.com",
+      title: "Product Manager",
+      phone: "+1 234-567-8905",
+      location: "Austin, TX",
+      bio: "Product manager focused on user-centric solutions",
+      education: "B.S. Computer Science, UT Austin",
+      experience: "Product Manager at Tech Inc (2017-Present)\nAssociate PM at StartupX (2015-2017)",
+      skills: ["Product Strategy", "Agile", "User Research", "Roadmapping", "Data Analysis"],
+      linkedin: "https://linkedin.com/in/davidkim",
+    }
+  },
+  {
+    id: "app6",
+    jobId: "job6",
+    candidateId: "cand6",
+    status: "rejected",
+    appliedAt: "2024-01-18",
+    coverLetter: "With my infrastructure and cloud expertise...",
+    resumeUrl: "https://example.com/resumes/rachel-thompson.pdf",
+    answers: [
+      "Built scalable e-commerce infrastructure",
+      "Experience with high-traffic retail platforms"
+    ],
+    candidate: {
+      id: "cand6",
+      name: "Rachel Thompson",
+      email: "rachel.t@email.com",
+      title: "DevOps Engineer",
+      phone: "+1 234-567-8906",
+      location: "Portland, OR",
+      bio: "DevOps engineer specializing in cloud infrastructure",
+      education: "B.S. Information Technology, Oregon State University",
+      experience: "DevOps Engineer at Cloud Co (2018-Present)\nSystems Admin at TechServ (2016-2018)",
+      skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Infrastructure as Code"],
+      linkedin: "https://linkedin.com/in/rachelthompson",
+      github: "https://github.com/rachelthompson",
     }
   }
 ];
 
-// Resume Alerts
-export const resumeAlerts = [
-  {
-    id: "alert1",
-    employerId: "emp1",
-    title: "Senior Developer Alert",
-    jobTitle: "Senior Full Stack Developer",
-    skills: "React, Node.js, TypeScript",
-    experienceLevel: "Senior Level",
-    education: "Bachelor's Degree",
-    location: "San Francisco, CA",
-    salary: "$120k-$160k",
-    frequency: "Daily",
-    matchedCandidates: ["cand1", "cand3"]
-  },
-  {
-    id: "alert2",
-    employerId: "emp1",
-    title: "Data Scientist Alert",
-    jobTitle: "Healthcare Data Analyst",
-    skills: "Python, R, SQL, Healthcare Analytics",
-    experienceLevel: "Mid Level",
-    education: "Master's Degree",
-    location: "Boston, MA",
-    salary: "$80k-$100k",
-    frequency: "Weekly",
-    matchedCandidates: ["cand2"]
+// Mock Employers
+export const employers = [
+  {    
+    id: "emp1",
+    name: "Tech Solutions Inc.",
+    email: "employer@example.com",
+    description: "Leading technology solutions provider specializing in multiple domains",
+    industry: "Technology",
+    companySize: "1000+ employees",
+    address: "123 Tech Park, Silicon Valley",
+    website: "https://techsolutions.com",
+    linkedin: "https://linkedin.com/techsolutions",
+    twitter: "https://twitter.com/techsolutions",
+    facebook: "https://facebook.com/techsolutions",
+    isPublic: true,
   }
 ];
 
@@ -143,8 +333,8 @@ export const resumeAlerts = [
 export const candidates = [
   {
     id: "cand1",
-    name: "John Smith",
-    email: "john.smith@example.com",
+    name: "Demo Candidate",
+    email: "candidate@example.com",
     title: "Senior Software Engineer",
     phone: "+1 234-567-8901",
     location: "San Francisco, CA",
@@ -155,39 +345,119 @@ export const candidates = [
     website: "https://johnsmith.dev",
     linkedin: "https://linkedin.com/in/johnsmith",
     github: "https://github.com/johnsmith",
-    resumeUrl: "https://example.com/resumes/john-smith.pdf",
     isPublic: true,
   },
   {
     id: "cand2",
     name: "Sarah Johnson",
-    email: "sarah.j@example.com",
-    title: "Data Scientist",
+    email: "sarah.j@email.com",
+    title: "UX Designer",
     phone: "+1 234-567-8902",
-    location: "Boston, MA",
-    bio: "Data scientist specializing in healthcare analytics",
-    education: "Ph.D. Biostatistics, Harvard University\nM.S. Statistics, UCLA",
-    experience: "Data Scientist at Health Analytics (2020-Present)\nBiostatistician at Research Lab (2018-2020)",
-    skills: ["Python", "R", "SQL", "Machine Learning", "Healthcare Analytics"],
+    location: "New York, NY",
+    bio: "Creative UX designer passionate about user-centered design",
+    education: "B.A. Design, Parsons School of Design",
+    experience: "UX Designer at Design Studio (2019-Present)\nJunior Designer at Creative Agency (2017-2019)",
+    skills: ["UI/UX Design", "Figma", "Adobe XD", "User Research", "Prototyping"],
+    website: "https://sarahj.design",
     linkedin: "https://linkedin.com/in/sarahjohnson",
-    github: "https://github.com/sarahjohnson",
-    resumeUrl: "https://example.com/resumes/sarah-johnson.pdf",
     isPublic: true,
   },
   {
     id: "cand3",
     name: "Michael Chen",
-    email: "michael.c@example.com",
-    title: "Full Stack Developer",
+    email: "michael.c@email.com",
+    title: "Data Scientist",
     phone: "+1 234-567-8903",
-    location: "San Francisco, CA",
-    bio: "Full stack developer with strong focus on modern web technologies",
-    education: "B.S. Computer Science, MIT",
-    experience: "Full Stack Developer at WebTech (2019-Present)\nJunior Developer at StartupX (2017-2019)",
-    skills: ["TypeScript", "React", "Node.js", "GraphQL", "AWS"],
+    location: "Seattle, WA",
+    bio: "Data scientist specializing in machine learning and AI",
+    education: "Ph.D. Data Science, MIT\nM.S. Statistics, UCLA",
+    experience: "Data Scientist at AI Corp (2020-Present)\nML Engineer at DataTech (2018-2020)",
+    skills: ["Python", "Machine Learning", "TensorFlow", "SQL", "Data Visualization"],
     linkedin: "https://linkedin.com/in/michaelchen",
     github: "https://github.com/michaelchen",
-    resumeUrl: "https://example.com/resumes/michael-chen.pdf",
     isPublic: true,
+  },
+  {
+    id: "cand4",
+    name: "Emily Rodriguez",
+    email: "emily.r@email.com",
+    title: "Marketing Manager",
+    phone: "+1 234-567-8904",
+    location: "Chicago, IL",
+    bio: "Marketing professional with expertise in digital campaigns",
+    education: "MBA Marketing, Northwestern University",
+    experience: "Marketing Manager at Brand Co (2019-Present)\nMarketing Specialist at Ad Agency (2016-2019)",
+    skills: ["Digital Marketing", "Social Media", "Content Strategy", "Analytics", "Brand Management"],
+    linkedin: "https://linkedin.com/in/emilyrodriguez",
+    isPublic: true,
+  },
+  {
+    id: "cand5",
+    name: "David Kim",
+    email: "david.k@email.com",
+    title: "Product Manager",
+    phone: "+1 234-567-8905",
+    location: "Austin, TX",
+    bio: "Product manager focused on user-centric solutions",
+    education: "B.S. Computer Science, UT Austin",
+    experience: "Product Manager at Tech Inc (2017-Present)\nAssociate PM at StartupX (2015-2017)",
+    skills: ["Product Strategy", "Agile", "User Research", "Roadmapping", "Data Analysis"],
+    linkedin: "https://linkedin.com/in/davidkim",
+    isPublic: true,
+  },
+  {
+    id: "cand6",
+    name: "Rachel Thompson",
+    email: "rachel.t@email.com",
+    title: "DevOps Engineer",
+    phone: "+1 234-567-8906",
+    location: "Portland, OR",
+    bio: "DevOps engineer specializing in cloud infrastructure",
+    education: "B.S. Information Technology, Oregon State University",
+    experience: "DevOps Engineer at Cloud Co (2018-Present)\nSystems Admin at TechServ (2016-2018)",
+    skills: ["AWS", "Docker", "Kubernetes", "CI/CD", "Infrastructure as Code"],
+    linkedin: "https://linkedin.com/in/rachelthompson",
+    github: "https://github.com/rachelthompson",
+    isPublic: true,
+  }
+];
+
+// Resume Alerts
+export const resumeAlerts = [
+  {
+    id: "alert1",
+    employerId: "emp1",
+    title: "React Developer Alert",
+    jobTitle: "Senior React Developer",
+    skills: "React, TypeScript, Node.js",
+    experienceLevel: "Senior Level",
+    education: "Bachelor's Degree",
+    location: "San Francisco, CA",
+    salary: "$120k-$160k",
+    frequency: "Daily"
+  },
+  {
+    id: "alert2",
+    employerId: "emp2",
+    title: "Healthcare Data Specialist Alert",
+    jobTitle: "Healthcare Data Analyst",
+    skills: "SQL, Python, Healthcare Analytics",
+    experienceLevel: "Mid Level",
+    education: "Bachelor's Degree",
+    location: "Boston, MA",
+    salary: "$80k-$100k",
+    frequency: "Weekly"
+  },
+  {
+    id: "alert3",
+    employerId: "emp3",
+    title: "UI/UX Designer Alert",
+    jobTitle: "Senior UI/UX Designer",
+    skills: "Figma, Adobe XD, User Research",
+    experienceLevel: "Senior Level",
+    education: "Bachelor's Degree",
+    location: "Remote",
+    salary: "$90k-$120k",
+    frequency: "Daily"
   }
 ];
