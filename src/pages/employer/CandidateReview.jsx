@@ -168,22 +168,24 @@ const CandidateReview = () => {
                   <span className="font-medium">Experience:</span>
                   <span className="ml-2">{application.candidate.experience}</span>
                 </p>
-                <div className="flex items-start text-gray-600">
-                  <FileText className="h-4 w-4 mr-2 mt-1" />
-                  <div>
-                    <span className="font-medium">Skills:</span>
-                    <div className="mt-1 flex flex-wrap gap-2">
-                      {application.candidate.skills.split(",").map((skill, index) => (
-                        <span
-                          key={index}
-                          className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-                        >
-                          {skill.trim()}
-                        </span>
-                      ))}
+                {application.candidate.skills && typeof application.candidate.skills === 'string' && (
+                  <div className="flex items-start text-gray-600">
+                    <FileText className="h-4 w-4 mr-2 mt-1" />
+                    <div>
+                      <span className="font-medium">Skills:</span>
+                      <div className="mt-1 flex flex-wrap gap-2">
+                        {application.candidate.skills.split(",").map((skill, index) => (
+                          <span
+                            key={index}
+                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
+                          >
+                            {skill.trim()}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>
@@ -266,11 +268,11 @@ const CandidateReview = () => {
                     Shortlist
                   </button>
                   <button
-                    onClick={() => handleStatusUpdate("rejected")}
+                    onClick={() => handleUpdateStatus("rejected")}
                     disabled={isUpdating}
                     className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50"
                   >
-                    <XCircle className="h-4 w-4 mr-2" />
+                    <XCircle className="h-4 w-4 mr-1" />
                     Reject
                   </button>
                 </>

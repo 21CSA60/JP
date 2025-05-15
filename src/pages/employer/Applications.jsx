@@ -33,16 +33,24 @@ const Applications = () => {
       } else {
         // Load all applications across all jobs
         const allJobs = await getJobById()
-        const allApplications = allJobs.flatMap(job => 
-          getApplicationsByJob(job.id).map(app => ({
-            ...app,
-            job
-          }))
-        )
-        setApplications(allApplications)
+        if (Array.isArray(allJobs) && allJobs.length > 0) {
+          const allApplicationsPromises = allJobs.map(async job => {
+            const jobApplications = await getApplicationsByJob(job.id)
+            return jobApplications.map(app => ({
+              ...app,
+              job
+            }))
+          })
+          const allApplicationsArrays = await Promise.all(allApplicationsPromises)
+          const allApplications = allApplicationsArrays.flat()
+          setApplications(allApplications)
+        } else {
+          setApplications([])
+        }
       }
     } catch (error) {
       console.error("Failed to load data:", error)
+      setApplications([])
     } finally {
       setIsLoading(false)
     }
